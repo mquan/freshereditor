@@ -5,7 +5,7 @@ freshereditor is an html editor built base on the {jQuery ContentEditable plugin
 - support foreground and background selection with built-in color picker (using farbtastic color picker plugin)
 - minor rewrite to make code less redundant since lots of command have the form: document.execCommand(cmd, false, null);
 
-demo code:
+Quickstart:
 
 <html>
 <head>
