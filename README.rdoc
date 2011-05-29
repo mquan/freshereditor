@@ -1,4 +1,4 @@
-freshereditor is an html editor built base on the {jQuery ContentEditable plugin }[http://freshcode.co/plugins/jquery.contentEditable/demo.html] with the following improvements:
+freshereditor is an html editor built base on the {jQuery ContentEditable plugin}[http://freshcode.co/plugins/jquery.contentEditable/demo.html] with the following improvements:
 - plugin automatically builds toolbar, have option to specify buttons to hide (see example)
 - support text alignment
 - support font size and name selection
@@ -15,7 +15,7 @@ demo:
 	<script src="freshereditor.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$('#content-editor').freshereditor({toolbar_selector: "#toolbar", excludes: ['strikethrough', 'removeFormat', 'insertheading4']});
+		$('#content-editor').freshereditor({toolbar_selector: "#toolbar", excludes: ['removeFormat', 'insertheading4']});
 		$("#content-editor").freshereditor("edit", true);
 	});
 	</script>
@@ -67,3 +67,8 @@ demo:
 	</div>
 </body>
 </html>
+
+Some excellent relevant references:
+http://blog.whatwg.org/the-road-to-html-5-contenteditable
+http://www.quirksmode.org/dom/execCommand/
+http://freshcode.co/plugins/jquery.contentEditable/demo.html

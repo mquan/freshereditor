@@ -29,6 +29,9 @@ Improvments by Quan Nguyen (github.com/mquan):
 - font color and background color with color picker plugin
 - text-alignment
 - plugin automatically builds toolbar, lets user specify which buttons to exclude
+
+Todo:
+- use image sprite for all images
 */
 (function ($) {
 	var bgcolorpicker = false;
