@@ -7,6 +7,7 @@ freshereditor is an html editor built base on the {jQuery ContentEditable plugin
 
 Quickstart:
 
+<pre><code>
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
@@ -29,7 +30,7 @@ Quickstart:
 	</div>
 </body>
 </html>
-
+</code></pre>
 Some excellent relevant references:
 - http://blog.whatwg.org/the-road-to-html-5-contenteditable
 - http://www.quirksmode.org/dom/execCommand/
