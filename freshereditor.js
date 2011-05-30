@@ -52,9 +52,9 @@ Todo:
 			$('#fontname-select').css({"left": pos.left + 'px', "top": pos.top + height + 'px'});
 			$('#fontname-select').toggle();
 		},
-		FontSize: function() {
-			var pos = $('.toolbar_FontSize').offset();
-			var height = $('.toolbar_FontSize').width();
+		FontSize: function() {			
+			var pos = $('.toolbar_fontsize').offset();
+			var height = $('.toolbar_fontsize').width();
 			$('#fontsize-select').css({"left": pos.left + 'px', "top": pos.top + height + 'px'});
 			$('#fontsize-select').toggle();
 		},
