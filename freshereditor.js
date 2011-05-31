@@ -53,8 +53,8 @@ Todo:
 			$('#fontname-select').toggle();
 		},
 		FontSize: function() {
-			var pos = $('.toolbar_FontSize').offset();
-			var height = $('.toolbar_FontSize').width();
+			var pos = $('.toolbar_fontSize').offset();
+			var height = $('.toolbar_fontSize').width();
 			$('#fontsize-select').css({"left": pos.left + 'px', "top": pos.top + height + 'px'});
 			$('#fontsize-select').toggle();
 		},
