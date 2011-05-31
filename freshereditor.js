@@ -30,8 +30,6 @@ Improvments by Quan Nguyen (github.com/mquan):
 - text-alignment
 - plugin automatically builds toolbar, lets user specify which buttons to exclude
 
-Todo:
-- use image sprite for all images
 */
 (function ($) {
 	var bgcolorpicker = false;
@@ -76,7 +74,7 @@ Todo:
 			var urlPrompt = prompt("Enter URL:", "http://");
 			document.execCommand("createlink", false, urlPrompt);
 		},
-		insertImage: function () { /* This can be improved */
+		insertimage: function () { /* This can be improved */
 			var urlPrompt = prompt("Enter Image URL:", "http://");
 			document.execCommand("insertimage", false, urlPrompt);
 		},
@@ -202,9 +200,9 @@ Todo:
 				{name: 'justifyfull', label: '<div>&nbsp;</div>', title: 'Full justify', classname: 'toolbar_justifyfull'}],
 				
 				[{name: 'createlink', label: '@', title: 'Link to a web page (Ctrl+L)', userinput: "yes", classname: 'toolbar_link'},
-				{name: 'insertimage', label: '&nbsp;', title: 'Insert an image (Ctrl+G)', userinput: "yes", classname: 'toolbar_image'},
-				{name: 'insertorderedlist', label: '&nbsp;', title: 'Insert ordered list', classname: 'toolbar_ol'},
-				{name: 'insertunorderedlist', label: '&nbsp;', title: 'Insert unordered list', classname: 'toolbar_ul'}],
+				{name: 'insertimage', label: '<div>&nbsp;</div>', title: 'Insert an image (Ctrl+G)', userinput: "yes", classname: 'toolbar_image'},
+				{name: 'insertorderedlist', label: '<div>&nbsp;</div>', title: 'Insert ordered list', classname: 'toolbar_ol'},
+				{name: 'insertunorderedlist', label: '<div>&nbsp;</div>', title: 'Insert unordered list', classname: 'toolbar_ul'}],
 								
 				[{name: 'insertparagraph', label: 'P', title: 'Insert a paragraph (Ctrl+Alt+0)', classname: 'toolbar_p', block:'p'},
 				{name: 'insertheading1', label: 'H1', title: "Heading 1 (Ctrl+Alt+1)", classname: 'toolbar_h1', block: 'h1'},
@@ -212,7 +210,7 @@ Todo:
 				{name: 'insertheading3', label: 'H3', title: "Heading 3 (Ctrl+Alt+3)", classname: 'toolbar_h3', block: 'h3'},
 				{name: 'insertheading4', label: 'H4', title: "Heading 4 (Ctrl+Alt+4)", classname: 'toolbar_h4', block: 'h4'}],
 				
-				[{name: 'blockquote', label: '&nbsp;', title: 'Blockquote (Ctrl+Q)', classname: 'toolbar_blockquote', block:'blockquote'},
+				[{name: 'blockquote', label: '<div>&nbsp;</div>', title: 'Blockquote (Ctrl+Q)', classname: 'toolbar_blockquote', block:'blockquote'},
 				{name: 'code', label: '{&nbsp;}', title: 'Code (Ctrl+Alt+K)', classname: 'toolbar_code', block:'pre'},
 				{name: 'superscript', label: 'x<sup>2</sup>', title: 'Superscript', classname: 'toolbar_superscript'},
 				{name: 'subscript', label: 'x<sub>2</sub>', title: 'Subscript', classname: 'toolbar_subscript'}]

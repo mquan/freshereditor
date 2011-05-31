@@ -139,30 +139,6 @@ em
 	font-weight:bold;
 }
 
-.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_ol {
-	background-image:url("images/ol.gif");
-	background-repeat:no-repeat;
-	background-position:center center;
-}
-
-.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_ul {
-	background-image:url("images/ul.gif");
-	background-repeat:no-repeat;
-	background-position:center center;
-}
-
-.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_image {
-	background-image:url("images/icon_image.gif");
-	background-repeat:no-repeat;
-	background-position:center center;
-}
-
-.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_blockquote {
-	background-image:url("images/blockquote.gif");
-	background-repeat:no-repeat;
-	background-position:center center;
-}
-
 .fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_forecolor {
 	font-weight:bold;
 	color:#dd0000;
@@ -178,41 +154,58 @@ em
 
 .fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar-cmd div {
 	width:16px;
-	height:13px;
+	height:11px;
 	position:relative;
-	top:6px;
+	top:7px;
 	left:7px;
 	text-decoration:none;
 }
 
 .fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_justifyleft div{
-	background: url("images/icon_align.gif") 0 0 no-repeat;
+	background: url("images/toolbar.png") 0 0 no-repeat;
 }
 
 .fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_justifycenter div{
-	background: url("images/icon_align.gif") -20px 0 no-repeat;
+	background: url("images/toolbar.png") -20px 0 no-repeat;
 }
 
 .fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_justifyright div{
-	background: url("images/icon_align.gif") -40px 0 no-repeat;
+	background: url("images/toolbar.png") -40px 0 no-repeat;
 }
 
 .fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_justifyfull div{
-	background: url("images/icon_align.gif") -64px 0 no-repeat;
+	background: url("images/toolbar.png") -62px 0 no-repeat;
+}
+
+.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_ol div {
+	background:url("images/toolbar.png") -20px -11px no-repeat;
+	height:14px;
+}
+
+.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_ul div {
+	background:url("images/toolbar.png") -40px -11px no-repeat;
+	height:14px;
+}
+
+.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_image div{
+	background:url("images/toolbar.png") 0px -11px no-repeat;
+	height:14px;
+}
+
+.fresheditor-toolbar .buttons ul.toolbarSection li a.toolbar_blockquote div{
+	background:url("images/toolbar.png") -62px -11px no-repeat;
+	height:14px;
 }
 
 a.contenteditable-icon
 {
 	text-decoration:none!important;
-	background-image:url("images/edit_icon.png");
-	background-repeat:no-repeat;
+	background:url("images/toolbar.png") -42px -24px no-repeat;
 	background-position:center center;
-	
 	width:16px;
 	height:24px;
 	display:block;
 	margin-right:5px;
-	
 }
 
 .hide
