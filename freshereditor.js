@@ -261,7 +261,33 @@ Todo:
 				} else if ($(this).attr('block')) {
 					methods['formatblock'].apply(this, ["<" + $(this).attr('block') + ">"]);
 				} else {
-					document.execCommand(cmd, false, null);
+                    // Firefox execCommand fix for justify (https://bugzilla.mozilla.org/show_bug.cgi?id=442186)
+                    if ((cmd == 'justifyright') || (cmd == 'justifyleft') || (cmd == 'justifycenter') || (cmd == 'justifyfull')) {
+                        try {
+                            document.execCommand(cmd, false, null);
+                        }
+                        catch (e) {
+                            //special case for Mozilla Bug #442186
+                            if (e && e.result == 2147500037) {
+                                //probably firefox bug 442186 - workaround
+                                var range = window.getSelection().getRangeAt(0);
+                                var dummy = document.createElement('div');
+                                dummy.style.height="1px;";
+
+                                //find node with contentEditable
+                                var ceNode = range.startContainer.parentNode;
+                                while (ceNode && ceNode.contentEditable != 'true')
+                                   ceNode = ceNode.parentNode;
+
+                                if (!ceNode) throw 'Selected node is not editable!';
+                                    ceNode.insertBefore(dummy, ceNode.childNodes[0]);                    
+                                    document.execCommand(cmd, false, null);
+                                    dummy.parentNode.removeChild(dummy);
+                                } else if (console && console.log) console.log(e);
+                        }
+                    } else {
+                        document.execCommand(cmd, false, null);
+                    }
 				}
 				return false;
 			});
