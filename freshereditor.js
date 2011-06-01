@@ -46,27 +46,27 @@ Improvments by Quan Nguyen (github.com/mquan):
 		},
 		fontname: function() {
 			var pos = $('.toolbar_fontname').offset();
-			var height = $('.toolbar_fontname').width();
+			var height = $('.toolbar_fontname').height() + 5;
 			$('#fontname-select').css({"left": pos.left + 'px', "top": pos.top + height + 'px'});
 			$('#fontname-select').toggle();
 		},
 		FontSize: function() {			
 			var pos = $('.toolbar_fontsize').offset();
-			var height = $('.toolbar_fontsize').width();
+			var height = $('.toolbar_fontsize').height() + 5;
 			$('#fontsize-select').css({"left": pos.left + 'px', "top": pos.top + height + 'px'});
 			$('#fontsize-select').toggle();
 		},
 		forecolor: function() {
 			bgcolorpicker = false;
 			var pos = $('.toolbar_forecolor').offset();
-			var height = $('.toolbar_forecolor').width();
+			var height = $('.toolbar_forecolor').height() + 5;
 			$('#colorpanel').css({"left": pos.left + 'px', "top": pos.top + height + 'px'});
 			$('#colorpanel').show();
 		},
 		backcolor: function() {
 			bgcolorpicker = true;
 			var pos = $('.toolbar_bgcolor').offset();
-			var height = $('.toolbar_bgcolor').width();
+			var height = $('.toolbar_bgcolor').height() + 5;
 			$('#colorpanel').css({"left": pos.left + 'px', "top": pos.top + height + 'px'});
 			$('#colorpanel').show();		
 		},
