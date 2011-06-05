@@ -82,6 +82,9 @@ Improvments by Quan Nguyen (github.com/mquan):
 			document.execCommand("formatblock", null, block);
 		},
 		init: function (options) {
+			if(typeof options == 'undefined') {
+				options = {};
+			}
 			var $toolbar;
 			if(typeof options.toolbar_selector != 'undefined') {
 				$toolbar = $(options.toolbar_selector);
