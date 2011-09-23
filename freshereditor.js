@@ -223,7 +223,7 @@ Improvments by Quan Nguyen (github.com/mquan):
 			$.each(groups, function (index, commands) {
 				var group='';
 				$.each(commands, function(i, command) {
-					if(jQuery.inArray(command.name, excludes)) { //lets developers exclude buttons
+					if(jQuery.inArray(command.name, excludes) == -1) { //lets developers exclude buttons
 						var button = "<li><a href='#' class='toolbar-cmd " + command.classname + "' title='" + command.title + "' command='" + command.name;
 						if(typeof command.userinput != 'undefined') {
 							button = button + "' userinput='" + command.userinput;
