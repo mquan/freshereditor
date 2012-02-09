@@ -18,6 +18,9 @@ Quickstart:
 	$(document).ready(function() {
 		$('#content-editor').freshereditor({toolbar_selector: "#toolbar", excludes: ['removeFormat', 'insertheading4']});
 		$("#content-editor").freshereditor("edit", true);
+		$("#content-editor").live('change', function() {
+			console.log("content changed");
+		});
 	});
 	</script>
 	<link href="freshereditor.css" rel="stylesheet" type="text/css" />
