@@ -249,6 +249,20 @@ Improvments by Quan Nguyen (github.com/mquan):
 				}
 			});
 			
+			//trigger change event when html content changes
+			$(this).live('focus', function() {
+				var $this = $(this);
+				$this.data('before', $this.html());
+				return $this;
+			}).live('blur keyup paste', function() {
+				var $this = $(this);
+				if($this.data('before') !== $this.html()) {
+					$this.data('before', $this.html());
+					$this.trigger('change');
+				}
+				return $this;
+			});
+			
 			//one common click event for all command buttons
 			$("a.toolbar-cmd").click(function() { 
 				//first close userinput panels b/c this click event won't be propagated to body's click
