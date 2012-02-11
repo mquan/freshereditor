@@ -224,73 +224,81 @@
           $('.btn-toolbar', $toolbar).append("<div class='btn-group'>" + group + "</div>");
         }
         $("[data-toggle='dropdown']").removeClass('toolbar-cmd');
-        fontnames = ["Arial", "Arial Black", "Comic Sans MS", "Courier New", "Georgia", "Helvetica", "Sans Serif", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"];
-        font_list = '';
-        for (_k = 0, _len3 = fontnames.length; _k < _len3; _k++) {
-          font = fontnames[_k];
-          font_list += "<li><a href='#' class='fontname-option' style='font-family:" + font + ";'>" + font + "</a></li>";
-        }
-        $('.toolbar_fontname').after("<ul class='dropdown-menu'>" + font_list + "</ul>");
-        $('.fontname-option').on('click', function() {
-          document.execCommand("fontname", false, $(this).text());
-          $(this).closest('.btn-group').removeClass('open');
-          return false;
-        });
-        fontsizes = [
-          {
-            size: 1,
-            point: 8
-          }, {
-            size: 2,
-            point: 10
-          }, {
-            size: 3,
-            point: 12
-          }, {
-            size: 4,
-            point: 14
-          }, {
-            size: 5,
-            point: 18
-          }, {
-            size: 6,
-            point: 24
-          }, {
-            size: 7,
-            point: 36
+        if (jQuery.inArray('fontname', excludes) < 0) {
+          fontnames = ["Arial", "Arial Black", "Comic Sans MS", "Courier New", "Georgia", "Helvetica", "Sans Serif", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"];
+          font_list = '';
+          for (_k = 0, _len3 = fontnames.length; _k < _len3; _k++) {
+            font = fontnames[_k];
+            font_list += "<li><a href='#' class='fontname-option' style='font-family:" + font + ";'>" + font + "</a></li>";
           }
-        ];
-        size_list = '';
-        for (_l = 0, _len4 = fontsizes.length; _l < _len4; _l++) {
-          fontsize = fontsizes[_l];
-          size_list += "<li><a href='#' class='font-option fontsize-option' style='font-size:" + fontsize.point + "px;fontsize='" + fontsize.size + "'>" + fontsize.size + "(" + fontsize.point + "pt)</a></li>";
+          $('.toolbar_fontname').after("<ul class='dropdown-menu'>" + font_list + "</ul>");
+          $('.fontname-option').on('click', function() {
+            document.execCommand("fontname", false, $(this).text());
+            $(this).closest('.btn-group').removeClass('open');
+            return false;
+          });
         }
-        $('.toolbar_fontsize').after("<ul class='dropdown-menu'>" + size_list + "</ul>");
-        $('a.fontsize-option').on('click', function() {
-          document.execCommand("FontSize", false, $(this).attr('fontsize'));
-          $(this).closest('.btn-group').removeClass('open');
-          return false;
-        });
-        $('a.toolbar_forecolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='forecolor-input' value='#000000' /><div id='forecolor-picker'></div></ul>");
-        $('#forecolor-picker').farbtastic(function(color) {
-          $('#forecolor-input').val(color);
-          document.execCommand("forecolor", false, color);
-          $(this).closest('.btn-group').removeClass('open');
-          $('.toolbar_forecolor div').css({
-            "color": color
+        if (jQuery.inArray('FontSize', excludes) < 0) {
+          fontsizes = [
+            {
+              size: 1,
+              point: 8
+            }, {
+              size: 2,
+              point: 10
+            }, {
+              size: 3,
+              point: 12
+            }, {
+              size: 4,
+              point: 14
+            }, {
+              size: 5,
+              point: 18
+            }, {
+              size: 6,
+              point: 24
+            }, {
+              size: 7,
+              point: 36
+            }
+          ];
+          size_list = '';
+          for (_l = 0, _len4 = fontsizes.length; _l < _len4; _l++) {
+            fontsize = fontsizes[_l];
+            size_list += "<li><a href='#' class='font-option fontsize-option' style='font-size:" + fontsize.point + "px;fontsize='" + fontsize.size + "'>" + fontsize.size + "(" + fontsize.point + "pt)</a></li>";
+          }
+          $('.toolbar_fontsize').after("<ul class='dropdown-menu'>" + size_list + "</ul>");
+          $('a.fontsize-option').on('click', function() {
+            document.execCommand("FontSize", false, $(this).attr('fontsize'));
+            $(this).closest('.btn-group').removeClass('open');
+            return false;
           });
-          return false;
-        });
-        $('a.toolbar_bgcolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='bgcolor-input' value='#000000' /><div id='bgcolor-picker'></div></ul>");
-        $('#bgcolor-picker').farbtastic(function(color) {
-          $('#bgcolor-input').val(color);
-          document.execCommand("backcolor", false, color);
-          $(this).closest('.btn-group').removeClass('open');
-          $('.toolbar_bgcolor div').css({
-            "background-color": color
+        }
+        if (jQuery.inArray('forecolor', excludes) < 0) {
+          $('a.toolbar_forecolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='forecolor-input' value='#000000' /><div id='forecolor-picker'></div></ul>");
+          $('#forecolor-picker').farbtastic(function(color) {
+            $('#forecolor-input').val(color);
+            document.execCommand("forecolor", false, color);
+            $(this).closest('.btn-group').removeClass('open');
+            $('.toolbar_forecolor div').css({
+              "color": color
+            });
+            return false;
           });
-          return false;
-        });
+        }
+        if (jQuery.inArray('backcolor', excludes) < 0) {
+          $('a.toolbar_bgcolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='bgcolor-input' value='#000000' /><div id='bgcolor-picker'></div></ul>");
+          $('#bgcolor-picker').farbtastic(function(color) {
+            $('#bgcolor-input').val(color);
+            document.execCommand("backcolor", false, color);
+            $(this).closest('.btn-group').removeClass('open');
+            $('.toolbar_bgcolor div').css({
+              "background-color": color
+            });
+            return false;
+          });
+        }
         $(this).on('focus', function() {
           var $this;
           $this = $(this);

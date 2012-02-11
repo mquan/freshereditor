@@ -75,46 +75,51 @@
 						button += ">#{command.label}</a>"
 						group += button
 				$('.btn-toolbar', $toolbar).append("<div class='btn-group'>#{group}</div>")
-			$("[data-toggle='dropdown']").removeClass('toolbar-cmd')
+			$("[data-toggle='dropdown']").removeClass('toolbar-cmd') #dropdown buttons dont behave like toolbar-cmd
 			
 			#fontname dropdown menu
-			fontnames = ["Arial", "Arial Black", "Comic Sans MS", "Courier New", "Georgia", "Helvetica", "Sans Serif", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"]
-			font_list = ''
-			font_list += "<li><a href='#' class='fontname-option' style='font-family:#{font};'>#{font}</a></li>" for font in fontnames
-			$('.toolbar_fontname').after("<ul class='dropdown-menu'>#{font_list}</ul>")
-			$('.fontname-option').on 'click', ->
-				document.execCommand("fontname", false, $(this).text())
-				$(this).closest('.btn-group').removeClass('open')
-				false
+			if jQuery.inArray('fontname', excludes) < 0
+				fontnames = ["Arial", "Arial Black", "Comic Sans MS", "Courier New", "Georgia", "Helvetica", "Sans Serif", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"]
+				font_list = ''
+				font_list += "<li><a href='#' class='fontname-option' style='font-family:#{font};'>#{font}</a></li>" for font in fontnames
+				$('.toolbar_fontname').after("<ul class='dropdown-menu'>#{font_list}</ul>")
+				$('.fontname-option').on 'click', ->
+					document.execCommand("fontname", false, $(this).text())
+					$(this).closest('.btn-group').removeClass('open')
+					false
 			
 			#fontsize dropdown
-			fontsizes = [{size: 1, point: 8}, {size:2, point:10}, {size:3, point:12}, {size:4, point:14},{size:5, point:18}, {size:6, point:24}, {size:7, point:36}]
-			size_list = ''
-			size_list += "<li><a href='#' class='font-option fontsize-option' style='font-size:#{fontsize.point}px;fontsize='#{fontsize.size}'>#{fontsize.size}(#{fontsize.point}pt)</a></li>" for fontsize in fontsizes
-			$('.toolbar_fontsize').after("<ul class='dropdown-menu'>#{size_list}</ul>")
-			$('a.fontsize-option').on 'click', ->
-				document.execCommand("FontSize", false, $(this).attr('fontsize'))
-				$(this).closest('.btn-group').removeClass('open')
-				false
+			if jQuery.inArray('FontSize', excludes) < 0
+				fontsizes = [{size: 1, point: 8}, {size:2, point:10}, {size:3, point:12}, {size:4, point:14},{size:5, point:18}, {size:6, point:24}, {size:7, point:36}]
+				size_list = ''
+				size_list += "<li><a href='#' class='font-option fontsize-option' style='font-size:#{fontsize.point}px;fontsize='#{fontsize.size}'>#{fontsize.size}(#{fontsize.point}pt)</a></li>" for fontsize in fontsizes
+				$('.toolbar_fontsize').after("<ul class='dropdown-menu'>#{size_list}</ul>")
+				$('a.fontsize-option').on 'click', ->
+					document.execCommand("FontSize", false, $(this).attr('fontsize'))
+					$(this).closest('.btn-group').removeClass('open')
+					false
 			
 			#forecolor dropdown
-			$('a.toolbar_forecolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='forecolor-input' value='#000000' /><div id='forecolor-picker'></div></ul>")
-			$('#forecolor-picker').farbtastic (color)->
-				$('#forecolor-input').val(color)
-				document.execCommand("forecolor", false, color)
-				$(this).closest('.btn-group').removeClass('open')
-				$('.toolbar_forecolor div').css({"color": color})
-				false
+			if jQuery.inArray('forecolor', excludes) < 0
+				$('a.toolbar_forecolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='forecolor-input' value='#000000' /><div id='forecolor-picker'></div></ul>")
+				$('#forecolor-picker').farbtastic (color)->
+					$('#forecolor-input').val(color)
+					document.execCommand("forecolor", false, color)
+					$(this).closest('.btn-group').removeClass('open')
+					$('.toolbar_forecolor div').css({"color": color})
+					false
 			
 			#bgcolor dropdown
-			$('a.toolbar_bgcolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='bgcolor-input' value='#000000' /><div id='bgcolor-picker'></div></ul>");
-			$('#bgcolor-picker').farbtastic (color)->
-				$('#bgcolor-input').val(color)
-				document.execCommand("backcolor", false, color)
-				$(this).closest('.btn-group').removeClass('open')
-				$('.toolbar_bgcolor div').css({"background-color": color})
-				return false
+			if jQuery.inArray('backcolor', excludes) < 0
+				$('a.toolbar_bgcolor').after("<ul class='dropdown-menu colorpanel'><input type='text' id='bgcolor-input' value='#000000' /><div id='bgcolor-picker'></div></ul>");
+				$('#bgcolor-picker').farbtastic (color)->
+					$('#bgcolor-input').val(color)
+					document.execCommand("backcolor", false, color)
+					$(this).closest('.btn-group').removeClass('open')
+					$('.toolbar_bgcolor div').css({"background-color": color})
+					return false
 			
+			#trigger change event
 			$(this).on('focus', ->
 				$this = $(this)
 				$this.data('before', $this.html())
