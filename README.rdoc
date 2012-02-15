@@ -6,6 +6,8 @@ freshereditor is an html editor built base on the {jQuery ContentEditable plugin
 - minor rewrite to make code less redundant since lots of command have the form: document.execCommand(cmd, false, null);
 - uses Twitter's bootstrap.css
 
+Here's a demo link:http://dl.dropbox.com/u/140543/FresherEditor/demo.html
+
 Quickstart:
 
     <html>
