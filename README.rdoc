@@ -50,3 +50,14 @@ Some excellent relevant references:
 - http://blog.whatwg.org/the-road-to-html-5-contenteditable
 - http://www.quirksmode.org/dom/execCommand/
 - http://freshcode.co/plugins/jquery.contentEditable/demo.html
+
+```
+License
+-------
+Let's keep it simple:
+ 1. You may use this code however you wish, including for commercial projects.
+ 2. You may not sell it or charge for it without my written permission.
+ 3. You muse retain the license information in this file.
+ 4. You are encouraged to contribute to the plugin on bitbucket (https://bitbucket.org/freshcode/jquery.contenteditable)
+ 5. You are encouraged to link back to www.freshcode.co.za if you publish something about it so everyone can benefit from future updates.
+```
